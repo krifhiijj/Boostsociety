@@ -1,0 +1,15 @@
+/*body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}*/
+/* index.css */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+/* Global styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', sans-serif; /* Use Outfit font globally */
+}
+

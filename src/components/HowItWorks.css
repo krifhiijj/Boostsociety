@@ -1,0 +1,90 @@
+.how-it-works {
+  width: 100%;
+  height: 85vh;
+  /*background: url("../assets/images/background1.png") no-repeat center center;*/
+  background: url("../assets/images/workimage.png") no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  color: white;
+  
+}
+
+.how-it-works-container {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.how-it-works-text {
+  width: 55%;
+  padding: 20px;
+  color: white;
+}
+
+.section-subtitle {
+  font-size: 20px;
+  /*font-family: "Times New Roman", serif;*/
+  
+  font-family: "Alumni Sans", sans-serif;
+  
+  
+  margin-left: 45px;
+  color: #ddd;
+}
+
+.section-title {
+  font-size: 50px;
+  font-weight: 500;
+  color: #ff4d00;
+  margin-bottom: 20px;
+  margin-left: 45px;
+
+}
+
+h3 {
+  font-size: 30px;
+  margin-top: 20px;
+  color: #fff;
+  font-weight: 300;
+  margin-left: 60px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 75px;
+}
+
+ul li {
+  margin: 10px 15px;
+  font-size: 18px;
+  line-height: 1.5;
+  position: relative;
+  color: white;
+}
+
+/*ul li::before {
+  content: "•";
+  color: #ff4d00;
+  font-size: 22px;
+  font-weight: bold;
+  position: absolute;
+  left: -20px;
+}*/
+
+/* Right Side Circular Image */
+.how-it-works-image {
+  width: 60%;
+  display: flex;
+  justify-content: right;
+}
+
+.how-it-works-image img {
+  width: 90%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid white;
+}

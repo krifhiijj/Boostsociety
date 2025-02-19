@@ -1,0 +1,5 @@
+@import "./global.css"; /* Import global styles */
+
+.app-container {
+  font-family: "Outfit", sans-serif;
+}
