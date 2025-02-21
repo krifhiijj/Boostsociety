@@ -1,14 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import boostLogo from "../assets/images/boostlogo2.png";
 import "./Footer.css";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [isValid, setIsValid] = useState(false);
+
+  // Function to validate email
+  const validateEmail = (input) => {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(input);
+  };
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+    setIsValid(validateEmail(value));
+  };
+
   return (
     <footer className="footer">
       {/* Top Purple Section with Subscription */}
       <div className="footer-top">
-        <input type="email" placeholder="Enter your email address" className="subscribe-input" />
-        <button className="subscribe-button">Subscribe</button>
+        <input
+          type="email"
+          placeholder="Enter your email address"
+          className="subscribe-input"
+          value={email}
+          onChange={handleChange}
+        />
+        <button
+          className="subscribe-button"
+          disabled={!isValid}
+          style={{
+            backgroundColor: isValid ? "#007bff" : "#ccc",
+            cursor: isValid ? "pointer" : "not-allowed",
+          }}
+        >
+          Subscribe
+        </button>
       </div>
 
       {/* Middle White Section with Centered Logo and Right Side Contact Us */}

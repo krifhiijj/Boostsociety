@@ -1,8 +1,8 @@
 .collaborative-projects {
   text-align: center;
-  
   position: relative;
   background-color: #f8f8f8;
+  /* overflow-x: hidden; */
 }
 
 .projects-header h2 {
@@ -16,7 +16,6 @@
   color: #555;
   width: 80%;
   margin: 0 auto 30px;
-  
 }
 
 .projects-wrapper {
@@ -26,6 +25,7 @@
   justify-content: flex-start;
   align-items: flex-end;
   margin-top: 20px;
+  /* overflow-x: hidden; */
 }
 
 .layer-image {
@@ -41,13 +41,20 @@
   display: flex;
   justify-content: flex-start;
   gap: 20px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   max-width: 1200px;
   padding: 40px;
   position: relative;
   z-index: 2;
   margin-left: 20px;
+  /* overflow-x: hidden; */
+  scroll-behavior: smooth; 
+  scrollbar-width: none; 
 }
+
+/*.projects-container::-webkit-scrollbar {
+  display: none;
+}*/
 
 .project-card {
   width: 410px;
@@ -56,24 +63,26 @@
   color: white;
   padding: 25px;
   border-radius: 12px;
-  /*box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);*/
-  box-shadow: rgba(0, 0, 0, 0.11) 0px 1px 1px, rgba(0, 0, 0, 0.11) 0px 2px 2px, rgba(0, 0, 0, 0.11) 0px 4px 4px, rgba(0, 0, 0, 0.11) 0px 6px 8px, rgba(0, 0, 0, 0.11) 0px 8px 16px;
-
+  box-shadow: rgba(0, 0, 0, 0.11) 0px 1px 1px, 
+              rgba(0, 0, 0, 0.11) 0px 2px 2px, 
+              rgba(0, 0, 0, 0.11) 0px 4px 4px, 
+              rgba(0, 0, 0, 0.11) 0px 6px 8px, 
+              rgba(0, 0, 0, 0.11) 0px 8px 16px;
   text-align: left;
   display: flex;
   flex-direction: column;
   align-items: left;
+  flex: 0 0 auto;
 }
 
 .project-image {
   width: 100%;
   border-radius: 8px;
-  height: 240px
+  height: 240px;
 }
 
 .project-description {
   font-size: 16px;
-  /*margin: 15px 0;*/
   letter-spacing: 0.00938em;
   line-height: 1.85;
   font-weight: 100;
@@ -86,4 +95,55 @@
   text-decoration: none;
   font-size: 24px;
   margin-top: 20px;
+}
+
+/* ===== Scroll Buttons ===== */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  font-size: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-btn:hover {
+  background-color: #e64a19;
+}
+
+.scroll-btn.left {
+  left: 40px;
+}
+
+.scroll-btn.right {
+  right: 40px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .projects-container {
+    padding: 0;
+  }
+
+  .project-card {
+    width: 350px;
+    height: auto;
+  }
+
+  .scroll-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+  }
 }

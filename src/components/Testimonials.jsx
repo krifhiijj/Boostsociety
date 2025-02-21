@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./Testimonials.css";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import monial1 from "../assets/images/monial.jpeg";
 import monial2 from "../assets/images/monial2.png";
 import monial3 from "../assets/images/monial3.jpg";
@@ -23,19 +24,46 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
+  const scrollRef = useRef(null);
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -500, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 500, behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="testimonials">
       <h2 className="title">You Are The Center Of Our Universe</h2>
       <h3 className="subtitle">Testimonials</h3>
 
-      <div className="testimonials-container">
-        {testimonials.map((testimonial, index) => (
-          <div key={index} className="testimonial-card">
-            <img src={testimonial.image} alt="User" className="user-image" />
-            <p className="testimonial-text">{testimonial.text}</p>
-            <p className="testimonial-name">{testimonial.name}</p>
-          </div>
-        ))}
+      <div className="testimonials-wrapper">
+        {/* Left Scroll Button */}
+        <button className="scroll-button scroll-left" onClick={scrollLeft}>
+          <IoIosArrowBack />
+        </button>
+
+        {/* Testimonials Container */}
+        <div className="testimonials-container" ref={scrollRef}>
+          {testimonials.map((testimonial, index) => (
+            <div key={index} className="testimonial-card">
+              <img src={testimonial.image} alt="User" className="user-image" />
+              <p className="testimonial-text">{testimonial.text}</p>
+              <p className="testimonial-name">{testimonial.name}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Right Scroll Button */}
+        <button className="scroll-button scroll-right" onClick={scrollRight}>
+          <IoIosArrowForward />
+        </button>
       </div>
     </section>
   );

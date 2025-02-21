@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./CollaborativeProjects.css";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 import cardImage1 from "../assets/images/cardimage1.png";
 import cardImage2 from "../assets/images/cardimage2.png";
 import layerImage from "../assets/images/layerimage.png";
 
 const CollaborativeProjects = () => {
+  const projectsRef = useRef(null);
+
+  const scrollLeft = () => {
+    projectsRef.current.scrollBy({ left: -400, behavior: "smooth" });
+  };
+
+  const scrollRight = () => {
+    projectsRef.current.scrollBy({ left: 400, behavior: "smooth" });
+  };
+
   return (
     <section className="collaborative-projects">
       <div className="projects-header">
@@ -18,8 +29,13 @@ const CollaborativeProjects = () => {
       </div>
 
       <div className="projects-wrapper">
+        <button className="scroll-btn left" onClick={scrollLeft}>
+          <IoIosArrowBack />
+        </button>
+
         <img src={layerImage} alt="Layer Background" className="layer-image" />
-        <div className="projects-container">
+
+        <div className="projects-container" ref={projectsRef}>
           <div className="project-card">
             <img src={cardImage1} alt="Project 1" className="project-image" />
             <p className="project-description">
@@ -40,6 +56,10 @@ const CollaborativeProjects = () => {
             <a href="#" className="learn-more">Learn more →</a>
           </div>
         </div>
+
+        <button className="scroll-btn right" onClick={scrollRight}>
+          <IoIosArrowForward />
+        </button>
       </div>
     </section>
   );

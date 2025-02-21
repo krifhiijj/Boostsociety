@@ -1,49 +1,49 @@
 .how-it-works {
   width: 100%;
   height: 85vh;
-  /*background: url("../assets/images/background1.png") no-repeat center center;*/
   background: url("../assets/images/workimage.png") no-repeat center center;
   background-size: cover;
   display: flex;
   justify-content: left;
   align-items: center;
   color: white;
-  
+  padding: 20px;
 }
 
+/* Container */
 .how-it-works-container {
   display: flex;
   width: 90%;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
+/* Left Side Text */
 .how-it-works-text {
   width: 55%;
   padding: 20px;
   color: white;
 }
 
+/* Subtitle */
 .section-subtitle {
   font-size: 20px;
-  /*font-family: "Times New Roman", serif;*/
-  
   font-family: "Alumni Sans", sans-serif;
-  
-  
   margin-left: 45px;
   color: #ddd;
 }
 
+/* Title */
 .section-title {
   font-size: 50px;
   font-weight: 500;
   color: #ff4d00;
   margin-bottom: 20px;
   margin-left: 45px;
-
 }
 
+/* Heading */
 h3 {
   font-size: 30px;
   margin-top: 20px;
@@ -52,6 +52,7 @@ h3 {
   margin-left: 60px;
 }
 
+/* List */
 ul {
   list-style: none;
   padding-left: 0;
@@ -66,15 +67,6 @@ ul li {
   color: white;
 }
 
-/*ul li::before {
-  content: "•";
-  color: #ff4d00;
-  font-size: 22px;
-  font-weight: bold;
-  position: absolute;
-  left: -20px;
-}*/
-
 /* Right Side Circular Image */
 .how-it-works-image {
   width: 60%;
@@ -87,4 +79,77 @@ ul li {
   border-radius: 50%;
   object-fit: cover;
   border: 5px solid white;
+}
+
+/* ----- Responsive Design ----- */
+@media (max-width: 1024px) {
+  .how-it-works {
+    height: auto;
+    padding: 50px 20px;
+  }
+
+  .how-it-works-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .how-it-works-text {
+    width: 90%;
+    padding: 20px 0;
+  }
+
+  .section-title, 
+  .section-subtitle, 
+  h3, 
+  ul {
+    margin-left: 0;
+  }
+
+  .how-it-works-image {
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .how-it-works-image img {
+    width: 60%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 36px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  ul li {
+    font-size: 16px;
+  }
+
+  .how-it-works-image img {
+    width: 70%;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 28px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  ul li {
+    font-size: 14px;
+  }
+
+  .how-it-works-image img {
+    width: 80%;
+  }
 }

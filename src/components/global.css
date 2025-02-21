@@ -8,8 +8,12 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
-}
+ 
+   
+    font-family: 'Outfit', sans-serif; /* Use Outfit font globally */
+    
+  }
+
 
 /* ====== NAVBAR ====== */
 .navbar {
@@ -17,54 +21,64 @@ body {
   justify-content: space-between;
   align-items: center;
   background: white;
-  /*padding: 5px 10px;*/
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
+  
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* LEFT LOGO */
-.left-logo img {
-  height: 60px;
-  margin-left: 55px;
-}
-
-/* RIGHT LOGO */
-.right-logo img {
-  height: 40px;
-  /*margin-left: 10px;*/
-  margin-right: 30px;
-}
-.nav-links-container {
-  flex-grow: 1;
+/* Left Section (Hamburger + Logo) */
+.left-section {
   display: flex;
-  justify-content: flex-end; /* Moves navigation links to the right */
-  margin-right: 20px; /* Creates space between links and right logo */
-}
-
-/* NAV LINKS */
-.nav-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  /*gap: 3px;*/
   align-items: center;
 }
 
-/* REMOVE DEFAULT BULLET POINTS */
-.nav-links li::before {
-  content: none !important;
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 15px;
 }
 
-/* NAVIGATION LINKS */
+/* Left Logo */
+.left-logo img {
+  height: 60px;
+  margin-left: 60px;
+}
+
+/* Right Section (Signup, Login, Right Logo) */
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Right Logo */
+.right-logo img {
+  height: 40px;
+  margin-right: 50px;
+}
+
+/* Navigation Links */
+.nav-links-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  
+}
+
 .nav-links li a {
   text-decoration: none;
   color: black;
   font-size: 16px;
-  /*padding: 8px 12px;*/
   transition: color 0.3s ease-in-out;
 }
 
@@ -72,12 +86,11 @@ body {
   color: #ff6600;
 }
 
-/* SIGNUP BUTTON (Keeps Default Style) */
+/* Sign Up Button */
 .signup {
   background: white;
   color: black;
   border: none;
-  /*padding: 8px 14px;*/
   cursor: pointer;
   font-size: 16px;
   font-weight: 450;
@@ -89,10 +102,10 @@ body {
   background: #e64a19;
 }
 
-/* LOGIN BUTTON (White Background, Red Border, Image Right Side) */
+/* Login Button */
 .login {
   background: white;
-  color: black;
+  color: red;
   border: 2px solid red;
   padding: 8px 14px;
   font-size: 16px;
@@ -102,48 +115,107 @@ body {
   align-items: center;
   gap: 8px;
   transition: all 0.3s ease;
-  color: red;
 }
 
 .login:hover {
   background: #f8f8f8;
 }
 
-/* IMAGE INSIDE LOGIN BUTTON (Aligned Right) */
+/* Login Icon */
 .login-icon {
   width: 18px;
   height: 18px;
 }
 
-/* RESPONSIVE DESIGN */
+/* ====== RESPONSIVE DESIGN ====== */
+@media (max-width: 1200px) {
+  .nav-links {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 992px) {
+  .nav-links {
+    gap: 10px;
+  }
+}
+
+/* Mobile View */
 @media (max-width: 768px) {
   .navbar {
-    flex-direction: column;
-    padding: 10px 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 15px;
+  }
+
+  /* Show Hamburger */
+  .hamburger {
+    display: block;
+  }
+
+  /* Hide navigation links by default */
+  @media (max-width: 768px) {
+  .nav-links-container {
+    position: absolute;
+    top: 60px;
+    left: -100%;
+    width: 250px;
+    height: 100vh;
+    background: white;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease-in-out;
+  }
+}  
+  
+
+  /* When menu is open */
+  .nav-links-container.open {
+    left: 0;
   }
 
   .nav-links {
     flex-direction: column;
-    gap: 10px;
+    padding: 20px;
+    gap: 15px;
   }
 
-  .left-logo img,
-  .right-logo img {
+  /* Right Section (Adjust for mobile) */
+  .right-section {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+  }
+
+  .left-logo img {
     height: 50px;
-    margin: 10px 0;
+    padding: 0;
+    margin: 0;
   }
 
-  .login {
-    font-size: 14px;
-    padding: 8px 14px;
-  }
-
-  .login-icon {
-    width: 16px;
-    height: 16px;
+  .right-logo img {
+   
+    margin-right: 50px;
   }
 }
 
+@media (max-width: 576px) {
+  .navbar {
+    padding: 10px;
+  }
+
+  .nav-links-container {
+    width: 200px;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .signup,
+  .login {
+    font-size: 14px;
+  }
+}
 
 /* Hero-Section */
 
@@ -285,7 +357,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow-x: hidden;
   width: 93%;
   margin: auto;
   margin-left: 60px;
@@ -298,7 +370,6 @@ body {
   overflow-x: auto;
   scroll-behavior: smooth;
   scrollbar-width: none;
-  -ms-overflow-style: none;
   width: 100%;
   padding: 20px 0;
   flex-wrap: nowrap;
